@@ -5,9 +5,9 @@
 1. Login to OpenAI Dashboard: https://platform.openai.com/
 2. Create an API Key: https://platform.openai.com/account/api-keys > "Create new secret key" > Copy the key
 3. Create a new environmental variable based on your operating system, which name being `OPENAI_API_KEY`, and value being `<your_api_key>`
-    3.1 Windows: https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/
-    3.2 Linux: https://www.cyberciti.biz/faq/set-environment-variable-linux/
-    3.3 Mac: https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html
+* * Windows: https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/
+* * Linux: https://www.cyberciti.biz/faq/set-environment-variable-linux/
+* * Mac: https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html
 4. In terminal, enter this repository's directory and execute `pip install -r requirements.txt`
 
 # Run
