@@ -10,6 +10,9 @@
 * * Mac: https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html
 4. In terminal, enter this repository's directory and execute `pip install -r requirements.txt`
 
+> If you'd like to modify default values of the parameters (i.e., arguments), please modify `parser.add_argument(..., default=xxx, ...)` in `run.py` according to your own need.
+> Or, you can just specify the parameters manually.
+
 # Run
 
 1. Put Excel file to be translated in the root directory of this repository.
