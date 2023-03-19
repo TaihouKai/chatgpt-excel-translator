@@ -4,6 +4,7 @@ import translator
 
 
 def main():
+    # Parse arguments
     parser = argparse.ArgumentParser(
         prog="run.py",
         description="ChatGPT Translator for Excels",
@@ -19,15 +20,16 @@ def main():
     
     # Parse data
     try:
+        print(f"Reading file: {args.file} ...")
         data = translator.read_xlsx(args.file)
         data_parsed = translator.parse_xlsx(data, args.column, args.row)
     except Exception as e:
+        print("")
         print(f"{e}")
         print("")
         parser.print_help()
         return
-
-    # Remove nan and None
+    # Replace nan and None
     temp = []
     for data in data_parsed:
         data = str(data)
@@ -37,20 +39,35 @@ def main():
             data = ""
         temp.append(data)
     data_parsed = temp
+
+    print("")
     
+    print(f"Entries to be translated: {len(data_parsed)}")
+
+    # Translate
+    count = 0
     for text in data_parsed:
+        count += 1
+        # Although the data is parsed, still check for nan and None anyway
         if text is None or str(text) == "nan" or str(text) == "None":
             text = ""
+        print(f"Translating: {count} / {len(data_parsed)} ...")
+        # Default: Japanese -> English
         translated.append(translator.chatgpt_translate(text))
     
-    rows = zip(data_parsed, translated)
+    print("")
 
+    print(f"Translation finished. Writing to file: {args.out}.csv ...")
+
+    # Transpose data
+    rows = zip(data_parsed, translated)
+    # Write data to csv
     with open(f"{args.out}.csv", 'w', newline='') as f:
         csv_writer = csv.writer(f)
         for row in rows:
             csv_writer.writerow(row)
     
-    print("Done!")
+    print("Done.")
 
 
 if __name__ == "__main__":
