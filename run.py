@@ -99,7 +99,10 @@ def main():
             text = ""
         print(f"Translating: {count} / {len(data_parsed)} ...")
         # Default: Japanese -> English
-        translated.append(translator.chatgpt_translate(text, from_lang=args.src, to_lang=args.dest))
+        translated_text = translator.chatgpt_translate(text, from_lang=args.src, to_lang=args.dest)
+        # Remove all newlines in translated_text
+        translated_text = translated_text.replace("\n", " ").strip()
+        translated.append(translated_text)
         sleep_counter += 1
 
     print("")
