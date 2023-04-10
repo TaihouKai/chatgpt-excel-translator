@@ -1,5 +1,9 @@
 # ChatGPT Translator for Excels
 
+This script is a simple integration of using ChatGPT on Excel forms, to translate texts from columns.
+
+This script is designed to help translators, as they often receive xlsx files as original text files.
+
 # Setup
 
 1. Login to OpenAI Dashboard: https://platform.openai.com/
