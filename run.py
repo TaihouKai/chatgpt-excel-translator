@@ -39,6 +39,20 @@ def main():
         default="translated",
         help="Filename of the output file",
     )
+    parser.add_argument(
+        "-s",
+        "--src",
+        type=str,
+        default="Japanese",
+        help="Source language",
+    )
+    parser.add_argument(
+        "-d",
+        "--dest",
+        type=str,
+        default="English",
+        help="Destination language",
+    )
     args = parser.parse_args()
 
     translated = []
@@ -85,7 +99,7 @@ def main():
             text = ""
         print(f"Translating: {count} / {len(data_parsed)} ...")
         # Default: Japanese -> English
-        translated.append(translator.chatgpt_translate(text))
+        translated.append(translator.chatgpt_translate(text, from_lang=args.src, to_lang=args.dest))
         sleep_counter += 1
 
     print("")
