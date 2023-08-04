@@ -19,16 +19,11 @@ This script is designed to help translators, as they often receive xlsx files as
 
 # Run
 
+> Remove square brackets from real commands. They simply mean "inputs".
+
 1. Put Excel file to be translated in the root directory of this repository.
-2. `python run.py`
+2. `python run.py -f [file_to_translate.xlsx]`
 
-> You can put the file in other places as well. In such case, you will need to specify the full path to the file after `-f`. See [Advanced Parameters](#advanced-parameters) for more details.
+# Other Parameters
 
-# Advanced Parameters
-
-If you want to customize parameters based on your need, run `python run.py -h` to read the manual.
-
-Parameter example:
-```
-python run.py -f "my-awesome-file.xlsx" -c F -r 3
-```
+Run `python run.py -h` to read the manual.

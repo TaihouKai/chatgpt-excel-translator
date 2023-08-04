@@ -15,7 +15,7 @@ def parse_xlsx(data: pandas.DataFrame, column_excel: str, start_row_excel: int) 
 
 
 def chatgpt_translate(
-    text: str, from_lang: str = "Japanese", to_lang: str = "English"
+    text: str, model: str, from_lang: str = "Japanese", to_lang: str = "English"
 ) -> str:
     """Send a message to the chatbot and return the response"""
     ## Null line?
@@ -36,7 +36,7 @@ def chatgpt_translate(
     result = None
     while result is None:
         try:
-            result = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
+            result = openai.ChatCompletion.create(model=model, messages=messages)
         except Exception as e:
             print(f"Failed due to error: \n{e}")
             print(f"Retrying in 10 seconds...")
